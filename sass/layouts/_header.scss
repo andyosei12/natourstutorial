@@ -1,0 +1,44 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($primary-color-light, 0.8),
+      rgba($primary-color-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  /* What the cover does is that is will fit the image into the height specified */
+
+  background-position: top;
+  /* This property will prevent any part of the value specified from cropping so in this case no matter the resize of our site, the top part of our background image will never be cropped */
+
+  /* Specifying the clip path property to clip the header element */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  position: relative;
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo {
+    height: 3.5rem;
+    animation: fadeIn 2s ease-out;
+    backface-visibility: hidden;
+
+    &-box {
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+    }
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
